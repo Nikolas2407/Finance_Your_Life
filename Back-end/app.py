@@ -11,5 +11,13 @@ CORS(app)  # Permitir CORS para la conexión con React
 cred = credentials.Certificate("./conexion.json")  # Asegúrate de colocar tu archivo JSON
 firebase_admin.initialize_app(cred)
 db = firestore.client()
-collection_name = "formularios"
+
+print("Base de datos inicializada")
+
+# Registro de usuarios
+@app.route('/registro', methods=['POST'])
+
+def registro():
+    data=request.json
+
 
