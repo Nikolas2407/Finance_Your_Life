@@ -80,7 +80,7 @@ const Registro = () => {
         value={password}
         onChangeText={setPassword}
         style={styles.input}
-        secureTextEntry
+        secureTextEntry 
       />
 
       <Button title="Registrarse" onPress={handleRegister} />
