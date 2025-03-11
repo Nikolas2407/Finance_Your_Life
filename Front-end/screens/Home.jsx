@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Button,TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, } from 'react-native';
 import Primary from '../components/Botones/Primary'
 const logo = require('../assets/Logo.png');
 
 
-const  Home = () =>{
+const  Home = ({navigation}) =>{
     return (
       <View style={styles.container}>
         <Image source={logo} style={styles.logo} />
@@ -12,8 +12,8 @@ const  Home = () =>{
         <Text style={styles.title} >Bienvenido</Text>
         <Text style={styles.container_text}>Finance Your Life es la herramienta que necesitas para tomar el control de tus finanzas</Text>
         
-        <Primary texto="Iniciar Sesión" onPress={() => alert('Hola')} />
-        <Primary texto="Registrarse" onPress={() => alert('Hola')} />
+        <Primary texto="Iniciar Sesión" onPress={() => navigation.navigate('Login')} />
+        <Primary texto="Registrarse" onPress={() => navigation.navigate('Signin')} />
         
   
         </View>

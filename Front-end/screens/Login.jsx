@@ -1,14 +1,39 @@
-import {Text,View,StyleSheet, Button} from 'react-native';
+import {Text,View,StyleSheet, Button,TextInput,Alert} from 'react-native';
 import { useState } from 'react';
+// Input
 import Primary from '../components/Inputs/Primary';
-import Secundary from '../components/Botones/Secundary';
+// Butons
 import Terciary from '../components/Botones/Terciary';
+// Textos
 import H1 from '../components/Titles/H1';
 import Cuerpo from '../components/Titles/Cuerpo';
+// Firebase
+import {auth} from '../firebase'
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+// const hanldleLogin = ( ) => {
+
+//     const Regex = /^[a-zA-Z0-9._-)+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+//     if (!Regex.test(email)){
+//         Alert.alert('Invalid Email', 'Plase enter a valid email address')
+//         return;
+//     }
+
+
+//     signInWithEmailAndPassword(auth, email, password)
+//     const user = auth.currentUser;
+//     if(user){
+//         Alert.alert("Inicio de sesion exitoso", "You have succesfully logged in")
+//     } {
+//         Alert.alert("Loidel Failed", "Please check your credentials and try again")
+//     }
+// };
+
     return(
        
 
@@ -18,15 +43,19 @@ const Login = () => {
             <Cuerpo texto="Da el primer paso hacia una vida financiera sin preocupaciones." color="#FFFFFF"  ></Cuerpo>
             </View>
             <View style={styles.container_2}>
-                <Primary placeholder="CORREO"
+                <Primary placeholder="Correo:"
+                value={email}
+                onChangeText={setEmail}
                 keyboardType="email-address"
                 autoCapitalize="none"
+
                 ></Primary>
-                <Primary placeholder="CONTRASEÑA"
-                secureTextEntry={!isPasswordVisible}
-                autoCapitalize="none"
-                autoCorrect={false}/>
-                <Button title="Olvidaste tu contraseña?" onPress={() => alert('Hola')}></Button>
+                <Primary placeholder='Contraseña:'
+                type={password}
+                onChangeText={setPassword}
+                SecureTextEntry={true}></Primary>
+
+                <Button title="Olvidaste tu contraseña?" onPress={() => alert('Hola')} color='#000000'></Button>
                 
                 <Terciary texto="Iniciar Sesión" color="#FFFFFF" ></Terciary>
                 <View style={{display:'flex',flexDirection:'row',alignItems:'center',}}>
@@ -46,13 +75,13 @@ const styles = StyleSheet.create(
         container:{
             width: '100%', 
             height: '100%', 
-            background: '#5271FF', 
+            backgroundColor: '#5271FF', 
             flexDirection: 'column', 
 
         },
         container_1:{
             width: '100%', 
-            height: '30%', 
+            height: '35%', 
             paddingLeft: 20, 
             paddingRight: 20, 
             paddingTop: 30, 
@@ -66,7 +95,7 @@ const styles = StyleSheet.create(
         },
         container_2:{
             width: '100%', 
-            height: '70%', 
+            height: '65%', 
             paddingLeft: 30, 
             paddingRight: 30, 
             paddingTop: 60, 

@@ -1,13 +1,14 @@
 import { TextInput, View, StyleSheet } from 'react-native';
 
-const InputPrimary = ({placeholder, value, onChangeText, keyboardType = 'default', ecureTextEntry = false,style, iconLeft, iconRight}) => {
+const InputPrimary = ({placeholder, value, onChangeText, keyboardType = 'default', SecureTextEntry,style, iconLeft, iconRight}) => {
     return(
       <TextInput style={styles.input} 
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
         keyboardType={keyboardType}
-        placeholderTextColor="#FFFFFF"
+        placeholderTextColor="#D9D9D9"
+        secureTextEntry={SecureTextEntry}
       />
 
     )
@@ -22,14 +23,14 @@ const styles = StyleSheet.create(
             borderRadius: 20,
             position: 'relative',
             padding: 20,
-            textAlign:'center',
             display: 'flex',
             flexDirection: 'column',
             color: '#FFFFFF',
-            boxShadow: '10px 10px 10px rgba(0, 0, 0, 0.25)',
             fontSize:16,
-            ååfontFamily: 'PoppinsMedium', 
-            fontWeight: '500'
+            fontFamily: 'PoppinsMedium', 
+            fontWeight: '500',
+            boxShadow: '10px 10px 10px rgba(0, 0, 0, 0.25)',
+
       
     }
 }
