@@ -9,6 +9,20 @@ import Cuerpo from './components/Titles/Cuerpo'
 import Login from './screens/Login'
 const logo = require('./assets/Logo.png');
 
+//Registro
+import React from 'react';
+import Registro from './Registro';
+
+const App = () => {
+  return <Registro/>;
+};
+
+//export default App; 
+
+
+
+
+
 // const Stack = createStackNavigator();
 export default function App() {
 

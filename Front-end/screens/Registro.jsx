@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
 const Registro = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
+  const [NOMBRECOMPLETO, setNombre] = useState('');
+  const [TDOCUMENTO, setDocumento] = useState('');
+  const [NUMERO, setNumero] = useState('');
+  const [FECHADENACIMIENTO, setFecha] = useState('');
+  const [EMAIL, setEmail] = useState('');
+  const [CONTRASEÑA, setPassword] = useState('');
   const handleRegister = async () => {
     // Validación simple
-    if (!name || !email || !password) {
+    if (!NOMBRE || !T.DOCUMENTO || !NUMERO  || !FECHADENACIMIENTO  || !EMAIL  || !CONTRASEÑA) {
       Alert.alert('Error', 'Todos los campos son obligatorios');
       return;
     }
@@ -17,14 +19,17 @@ const Registro = () => {
       const response = await fetch('https://tu-api.com/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ NOMBRECOMPLETO, TDOCUMENTO, NUMERO, FECHADENACIMIENTO, EMAIL, CONTRASEÑA }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
         Alert.alert('Éxito', 'Usuario registrado correctamente');
-        setName('');
+        setNombre('');
+        setDocumento('');
+        setNumero('');
+        setFecha('');
         setEmail('');
         setPassword('');
       } else {
@@ -41,13 +46,31 @@ const Registro = () => {
 
       <TextInput
         placeholder="Nombre"
-        value={name}
-        onChangeText={setName}
+        value={NOMBRECOMPLETO}
+        onChangeText={setNombre}
+        style={styles.input}
+      />
+      <TextInput
+        placeholder="Documento"
+        value={TDOCUMENTO}
+        onChangeText={setDocumento}
+        style={styles.input}
+      />
+      <TextInput
+        placeholder="Numero"
+        value={NUMERO}
+        onChangeText={setNumero}
+        style={styles.input}
+      />
+      <TextInput
+        placeholder="Fecha"
+        value={FECHADENACIMIENTO}
+        onChangeText={setFecha}
         style={styles.input}
       />
       <TextInput
         placeholder="Email"
-        value={email}
+        value={EMAIL}
         onChangeText={setEmail}
         style={styles.input}
         keyboardType="email-address"
