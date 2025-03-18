@@ -3,17 +3,15 @@ import { StyleSheet, Text, View, Image} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {createStackNavigator } from '@react-navigation/stack';
 
-import Bienvenida from './screens/Bienvenida'
-import Home from './screens/Home'
-import Login from './screens/Login'
-import Signin from './screens/Signin'
+import Bienvenida from './screens/Bienvenida.jsx'
+import Home from './screens/Home.jsx'
+import Login from './screens/Login.jsx'
+import Signin from './screens/Signin.jsx'
 
 
 const Stack = createStackNavigator();
+
 export default function App() {
-
-
-
   return (
 
       <NavigationContainer >
@@ -27,3 +25,4 @@ export default function App() {
 
   );
 }
+ 

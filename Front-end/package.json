@@ -1,45 +1,28 @@
 {
-  "name": "finance-your-life",
+  "name": "front-end",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "lint": "eslint ."
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "expo start"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
-    "@expo-google-fonts/poppins": "^0.2.3",
-    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
     "@react-navigation/native": "^7.0.15",
     "@react-navigation/stack": "^7.1.2",
-    "expo": "~52.0.37",
-    "expo-constants": "~17.0.7",
-    "expo-font": "~13.0.4",
-    "expo-splash-screen": "~0.29.22",
-    "expo-status-bar": "~2.0.1",
+    "expo": "^52.0.39",
+    "expo-font": "^13.0.4",
+    "expo-splash-screen": "^0.29.22",
+    "expo-status-bar": "^2.0.1",
     "firebase": "^11.4.0",
-    "react": "18.3.1",
-    "react-native": "0.76.7",
-    "react-native-gesture-handler": "~2.20.2",
-    "react-native-reanimated": "~3.16.1",
-    "react-native-safe-area-context": "4.12.0",
-    "react-native-screens": "~4.4.0",
-    "react-native-svg": "15.8.0",
-    "react-native-vector-icons": "^10.2.0",
-    "react-dom": "18.3.1",
-    "react-native-web": "~0.19.13",
-    "@expo/metro-runtime": "~4.0.1"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@types/react": "~18.3.12",
-    "eslint": "^8.57.0",
-    "eslint-config-expo": "~8.0.1",
-    "eslint-config-prettier": "^10.0.2",
-    "eslint-plugin-prettier": "^5.2.3",
-    "pettier": "^1.1.0"
-  },
-  "private": true
+    "react-native": "^0.78.0",
+    "react-native-gesture-handler": "^2.24.0",
+    "react-native-reanimated": "^3.17.1",
+    "react-native-safe-area-context": "^5.3.0",
+    "react-native-screens": "^4.9.2",
+    "react-native-vector-icons": "^10.2.0"
+  }
 }

@@ -8,11 +8,15 @@ app = Flask(__name__)
 CORS(app)  # Permitir CORS para la conexión con React
 
 # Configurar Firebase
-cred = credentials.Certificate("./conexion.json")  # Asegúrate de colocar tu archivo JSON
-firebase_admin.initialize_app(cred)
-db = firestore.client()
+try:
+ cred = credentials.Certificate("./Back-end/conexion.json")  # Asegúrate de colocar tu archivo JSON
+ firebase_admin.initialize_app(cred)
+ db = firestore.client()
+ print("Base de datos inicializada")
 
-print("Base de datos inicializada")
+except Exception as e:
+    print(f"Error al inicializar la base de datos: {e}")
+
 
 # Registro de usuarios
 @app.route('/registro', methods=['POST'])
@@ -24,19 +28,25 @@ def registro():
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
-app.route('/inicio',methods=['GET'])
+@app.route('/inicio',methods=['GET'])
 def inicio():
     try:
-        data=request.args.get("documento")
-        usuario=db.collection('usuarios').where("documento","=",data).stream()
-        usuer=next(usuario,None)
-        if usuer:  
-            return jsonify({"status":"usuario encontrado"}), 200
+        Correo=request.args.get("Correo")
+        Contraseña=request.args.get("Contraseña")
+        if not Correo or not Contraseña:
+            return jsonify({"error": "Correo y Contraseña son requeridos"}), 400
+        
+        usuario=list(db.collection('usuarios').where('Correo','==',Correo).where('Contraseña','==',Contraseña).stream())
+
+        if usuario:  
+            return jsonify({"status":"usuario encontrado","data":usuario[0].to_dict()}), 200
         else:
-            return jsonify({"status":"No existe el usuario"}), 404
+            return jsonify({"status":"Correo o contraseña no encontrados"}), 404
     except Exception as e:
         return jsonify({"error": str(e)}), 400
 
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
 
 
